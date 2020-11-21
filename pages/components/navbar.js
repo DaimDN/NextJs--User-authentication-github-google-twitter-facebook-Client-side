@@ -1,5 +1,6 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
 import Head from 'next/head';
+import { browserHistory } from 'react-router';
 
 export default function Navbar(){
     const [ session, loading ] = useSession()
@@ -20,14 +21,17 @@ export default function Navbar(){
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item active">
-        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+        <a className="nav-link" href="/">Jobs <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Features</a>
+        <a className="nav-link" href="#">Developers</a>
       </li>
       {session && <>
         <li className="nav-item">
-        <a className="nav-link" href="/profile">Dashboard</a>
+        <a className="nav-link" href="/profile">Current Scope</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="/dashboard">Dashboard</a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="/profile">Settings</a>

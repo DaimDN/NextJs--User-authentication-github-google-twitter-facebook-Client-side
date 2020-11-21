@@ -3,6 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar'
+import {Redirect, Router} from 'react-router'
 
 export default function Page() {
    
@@ -10,6 +11,7 @@ export default function Page() {
 
   return <>
     {!session && <>
+    
       Not signed in <br/>
       <Head>
     <title>Login</title>
@@ -27,16 +29,21 @@ export default function Page() {
     
     </Head>
     
-        <div><h1>Welcome {session.user.name} !</h1></div>
+        <div><h1>Welcome {session.user.name} !</h1>
+        
+        <button onClick={signOut}className="btn btn-primary btn-g">SignOut</button>
+        
+        </div>
+
     </div>
-     Welcome  {session.user.name} ! <br/>
-      <button onClick={signOut}>Sign out</button>
+
+   
+  
+    
     </>}
     <style jsx>{`
     
-    .jumbotron{
-      background-color: #E2F0FD !important;
-    }
+    
     
       
     `}
@@ -55,6 +62,7 @@ export default function Page() {
         * {
           box-sizing: border-box;
         }
+        
         
       `}</style>
   </>

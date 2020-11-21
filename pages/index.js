@@ -17,6 +17,7 @@ export default function Home() {
         <h1 className="title">
          Build By <a href="https://github.com/DaimDN">Daim</a>
         </h1>
+        <a href="http://localhost:3000/api/auth/signin?callbackUrl=http%3A%2F%2Flocalhost%3A3000%2F">Login Github</a>
       </main>
 
       <footer>

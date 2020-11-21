@@ -4,8 +4,17 @@ import Providers from 'next-auth/providers'
 const options = {
   providers: [
     Providers.GitHub({
-      clientId: "Iv1.4b3b08e8ff2abc74",
-      clientSecret: "d83c0de0ff4d1c26c7837cb10dde614a4b2326de"
+      clientId: "",
+      clientSecret: ""
+    }),
+    Providers.Google({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET
+    }),
+    // Sign in with passwordless email link
+    Providers.Email({
+      server: process.env.MAIL_SERVER,
+      from: '<no-reply@example.com>'
     }),
 
   ],
